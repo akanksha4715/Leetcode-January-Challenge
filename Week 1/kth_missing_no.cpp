@@ -18,9 +18,13 @@ int getceil(int dp[],int k,int h){
     else return -1;
 }
 int findKthPositive(vector<int>& arr, int k) {
-        int n=sizeof(arr)/sizeof(arr[0]);
+        int n=arr.size();
         int dp[n];
+        if(arr[0]==1)
+        dp[0]=0;
+        else
         dp[0]=arr[0]-1;
+
         for(int i=1;i<n;i++){
             dp[i]=dp[i-1]+(arr[i]-arr[i-1]-1);
         }
@@ -34,7 +38,7 @@ int findKthPositive(vector<int>& arr, int k) {
         {
             int id=getceil(dp,k,n);
             if(id!=-1)
-            return arr[id]-(dp[id]-dp[id-1]);
+            return arr[id-1]+(k-dp[id-1]);
         }
         return -1;
 }
