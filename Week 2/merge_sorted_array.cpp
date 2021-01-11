@@ -25,10 +25,7 @@ void merge(vector<int>& num1, int m, vector<int>& num2, int n) {
             j++;
         }
         num1=aux;
-        int l=num1.size();
-        for(int i=0;i<l;i++){
-            cout<<num1[i];
-        }
+        
 
 }
 int main(){
