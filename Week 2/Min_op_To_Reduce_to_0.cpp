@@ -1,7 +1,12 @@
 #include<iostream>
-#include<cmath>
+#include<map>
 using namespace std;
 int sol(int arr[],int x,int i,int j){
+    map<string,int> aux;
+    string key=to_string(x)+"&"+to_string(i)+"&"+to_string(j);
+    if(aux.count(key))
+    return aux[key];
+    else{
     if(x==0)
     return 0;
     if(x<0)
@@ -16,7 +21,9 @@ int sol(int arr[],int x,int i,int j){
             return INT16_MAX;
         }       
     }
-    return 1+min(sol(arr,x-arr[i],i+1,j),sol(arr,x-arr[j],i,j-1));
+    aux[key]= 1+min(sol(arr,x-arr[i],i+1,j),sol(arr,x-arr[j],i,j-1));
+    return aux[key];
+    }
     
 }
 int main(){
