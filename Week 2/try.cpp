@@ -3,9 +3,12 @@
 using namespace std;
 
 int main(){
-    int n,k;
-    cin>>n>>k;
     
-    cout<<to_string(n)+"&"+to_string(k);
+    int ab1[]= {1,2,3,4,5};
+    int ab[]= {1,2,3,4,5};
+    if(equal(begin(ab),end(ab1),begin(ab1)))
+    cout<<1;
+    else
+    cout<<0;
     return 0;
 }
